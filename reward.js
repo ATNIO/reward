@@ -11,8 +11,7 @@ async function run() {
   let dones = objToStrMap(fs.readJsonSync(donefile)); 
   let todos = objToStrMap(fs.readJsonSync(todofile));
 
-  // var web3 = new Web3(config.endpoint);
-  var web3 = new Web3(new Web3.providers.HttpProvider(config.endpoint));
+  var web3 = new Web3(config.endpoint);
   var privateKeyString = config.private_key;
   var myAccount = web3.eth.accounts.privateKeyToAccount("0x" + privateKeyString);
   var owner = myAccount.address;
@@ -27,9 +26,9 @@ async function run() {
   console.log(`Address ${owner} tokenBalance is ${tokenBalance}`);
   if (tokenBalance == 0) return;
 
-  let i = 0;
+  // let i = 0;
   for (let [key, value] of todos) {
-    if(i >= 1) break;
+    // if(i >= 1) break;
     console.log(key)
     console.log(value)
     value = new BN(value);
@@ -58,7 +57,7 @@ async function run() {
     tx.balance = doneBalance;
     todos.delete(key);
     dones.set(key, tx);
-    i++;
+    // i++;
   }
 
   fs.outputJsonSync(donefile, strMapToObj(dones));

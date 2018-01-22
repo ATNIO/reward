@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 var xlsx = require('node-xlsx').default;
-const obj = xlsx.parse(`${__dirname}/1-7 HZ.xlsx`);
-var excelObj=obj[1].data;
+const obj = xlsx.parse(`${__dirname}/1-14 深圳活动奖励.xlsx`);
+var excelObj=obj[0].data;
 
 let todos = new Map();
 let count = 0;

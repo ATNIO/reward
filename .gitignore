@@ -31,6 +31,5 @@ node_modules
 package-lock.json
 config.json
 todo.json
-done.json
 ATN.json
 *.xlsx
